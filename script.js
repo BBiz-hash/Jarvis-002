@@ -5,7 +5,6 @@ const scoreElement = document.getElementById("score");
 let score = 0;
 let currentQuestion = {};
 
-// Generate random math questions
 function generateQuestion() {
     const num1 = Math.floor(Math.random() * 10) + 1;
     const num2 = Math.floor(Math.random() * 10) + 1;
@@ -32,7 +31,6 @@ function generateQuestion() {
     };
 }
 
-// Generate multiple-choice options with one correct answer
 function generateOptions(correct) {
     const options = new Set();
     options.add(correct);
@@ -44,7 +42,6 @@ function generateOptions(correct) {
     return Array.from(options).sort(() => Math.random() - 0.5);
 }
 
-// Render the question and options
 function displayQuestion() {
     currentQuestion = generateQuestion();
 
@@ -60,10 +57,9 @@ function displayQuestion() {
     });
 }
 
-// Check the selected answer
 function checkAnswer(selected, element) {
     const allOptions = document.querySelectorAll(".option");
-    allOptions.forEach((opt) => (opt.onclick = null)); // Disable further clicks
+    allOptions.forEach((opt) => (opt.onclick = null));
 
     if (selected === currentQuestion.correctAnswer) {
         element.classList.add("correct");
@@ -80,10 +76,8 @@ function checkAnswer(selected, element) {
     scoreElement.textContent = Score: ${score};
 }
 
-// Load the next question
 function nextQuestion() {
     displayQuestion();
 }
 
-// Initialize the game
 displayQuestion();
