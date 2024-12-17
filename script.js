@@ -1,4 +1,3 @@
-
 const questionElement = document.getElementById("question");
 const optionsElement = document.getElementById("options");
 const scoreElement = document.getElementById("score");
@@ -26,7 +25,7 @@ function generateQuestion() {
     }
 
     return {
-        question: What is ${num1} ${operator} ${num2}?,
+        question: `What is ${num1} ${operator} ${num2}?`,
         correctAnswer,
         options: generateOptions(correctAnswer),
     };
@@ -74,7 +73,7 @@ function checkAnswer(selected, element) {
         });
     }
 
-    scoreElement.textContent = Score: ${score};
+    scoreElement.textContent = `Score: ${score}`;
 }
 
 function nextQuestion() {
